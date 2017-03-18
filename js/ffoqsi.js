@@ -11,7 +11,6 @@ function animate() {
     window.setInterval(function () {
         var s1 = currentslide;
         var s2 = (currentslide + 1) % areaimgcount;
-        console.log(s1, s2);
         slides[s1].classList.add("muted");
         slides[s2].classList.remove("muted");
         currentslide = ++currentslide % areaimgcount;
@@ -40,12 +39,10 @@ function initimages() {
 // set top
 var totop = document.getElementById("top");
 totop.addEventListener("mousedown", function (ev) {
-    console.log("mousedown");
     ev.preventDefault();
     window.scroll({ top: 0, left: 0, behavior: 'smooth' }); // polyfilled below
 });
 totop.addEventListener("click", function (ev) {
-    console.log("click");
     ev.preventDefault();
 });
 
@@ -58,7 +55,6 @@ function scroll2id(id) {
 window.onload = function () {
     var target = document.location.search.substring(1);
     if (target === "") target = "top";
-    console.log("target", target);
     // document.body.classList.add(target);
     window.setTimeout(function() { 
         scroll2id(target);
