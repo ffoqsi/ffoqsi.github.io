@@ -1,0 +1,1059 @@
+/* vars */
+$color1: rgb(159, 147, 103);
+$color2: rgb(109, 145, 65);
+$color3: rgb(168, 79, 86);
+$color4: rgb(62, 130, 164);
+$color1dark: darken($color1, 10%);
+$color1dark2: darken($color1, 20%);
+$defaultanchoroffset: 200px; /* peh-js sets this more precisely */
+
+/* reset */
+body, html, div, img, p, h1, h2, h3, h4, h5, h6, pre, ul, ol, li, dl, dt, dd, form, a, th, td, figure {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth; // only firefox does it: https://developer.mozilla.org/en-US/docs/Web/CSS/scroll-behavior
+}
+
+figure {
+    padding: .5em;
+}
+
+h1, h2, h3 {
+    border-radius: 4px;
+}
+
+ul, li {
+    // leave default list style untouched
+}
+
+/* typography */
+body {
+    font-family: calibri,Ubuntu,"Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 115%; // central font-size
+    color: #333;
+    margin: 0 6px;
+    line-height: 1.2;
+}
+
+p {
+    margin-bottom: .5em; // after reset, we need to set a reasonable margin below.
+}
+
+h1, h2, h3, h4, h5 {
+    margin-bottom: .3em;
+    line-height: 1;
+}
+
+h1, h2, h3 {
+    color: $color1dark;
+}
+
+h1 {
+    margin-top: 2em;
+    font-size: 1.5em;
+}
+
+article > h1:first-child {
+    margin-top: 0;
+}
+
+h2 {
+    margin-bottom: 1em;
+    font-size: 1.3em;
+}
+
+p + h2 {
+    margin-top: 1.5em;
+}
+
+h3 {
+    margin-top: 1.5em;
+    margin-bottom: .3em;
+}
+
+h4 {
+    margin-top: 1em;
+    _color: #666;
+}
+
+a:link, a:visited, a:hover, a:focus {
+    color: $color1dark;
+}
+
+/* layout */
+body {
+    overflow-y: scroll; /* avoid layout shift on windows */
+}
+
+@mixin center960 {
+    max-width: 960px; /* center the article */
+    margin: 0 auto;
+}
+
+@mixin clearcenter960 {
+    max-width: initial; /* center the article */
+    margin: 0 auto;
+}
+
+.center {
+    @include center960;
+}
+
+article {
+    @include center960;
+
+    li {
+        margin: .5em 1.5em;
+
+        p {
+            display: block;
+            _outline: solid 1px orange;
+        }
+    }
+
+    min-height: 300px; // helpful for empty english pages
+}
+
+footer {
+    padding: 1em 4px; /* 1em vertically, 4px to avoid Text touching right border */
+    text-align: right;
+    color: $color1;
+}
+
+// header content
+#headercontent {
+    @include center960;
+    display: flex;
+}
+
+// menu
+#abovemenu {
+    text-align: right;
+    vertical-align: top;
+}
+
+#menucontainer {
+    padding-top: 2.7em;
+    flex: auto;
+}
+
+#clogo {
+    padding: 1em 1em 1em 0;
+}
+
+#languages {
+    a {
+        text-decoration: none;
+        display: inline-block;
+        position: relative;
+        top: 3px;
+        padding: 1px 3px;
+        border-bottom: solid 3px transparent;
+    }
+
+    .selected {
+        border-color: $color1;
+        pointer-events: none;
+        cursor: default;
+    }
+}
+
+nav ul li {
+    display: inline-block;
+}
+
+nav ul li a {
+    display: block;
+    text-decoration: none;
+    padding: .3em .4em; /* basic deco */
+    font-weight: bold;
+    border-right: solid 1px $color1;
+}
+/*#mhome {
+    _padding-left: 0;
+    position:relative;
+    left: -.9em;
+}*/
+/*nav ul li ul {
+    display:none;
+}*/
+nav ul li ul li {
+    padding-left: .7em;
+    margin-top: .3em;
+}
+
+nav ul li ul li a {
+    padding: .2em .4em; /* sub menu deco */
+    font-weight: normal;
+    border-right: none;
+    border-radius: 3px;
+}
+
+nav ul li ul { /* sub menu */
+    position: absolute;
+    visibility: hidden;
+}
+/* normal menu functionality. but here we do not preview */
+/*nav li:hover ul {
+    visibility: visible;
+    background:white;
+    z-index:1000;
+    width:1000px;
+}*/
+nav ul li:hover { /* hovering effect menus */
+    background-color: rgba($color1, .15);
+    _color: white;
+}
+
+nav {
+
+    > ul {
+        border-top: solid 1px $color1;
+    }
+
+    .sub > ul > li {
+        display: table-cell; /* only table-cell makes sub-menu horizontal. (display=inline does not suffice (?)) */
+    }
+
+    a.selected {
+        color: white !important;
+    }
+    /*a:hover {
+        color: white !important;
+    }*/
+    a {
+        letter-spacing: 1px;
+    }
+
+    a {
+        /*text-transform: uppercase;*/
+        /*margin: 2em 0;*/
+        padding: .1em;
+    }
+    /* avoid resizing when making bold: add pseudo element with bold text, so size is always arranged for bold */
+    a::after {
+        display: block;
+        content: attr(title);
+        font-weight: bold;
+        height: 1px;
+        color: transparent;
+        overflow: hidden;
+        visibility: hidden;
+        margin-bottom: -1px;
+    }
+}
+
+#top {
+    display: none;
+}
+
+#logo {
+    height: 120px; // logo size
+}
+
+#mhome {
+    border-left: none; // no left border for home, looks cooler
+}
+
+// menu selection
+body.home #mhome,
+body.partner #mpartner,
+body.presse #mpresse,
+body.unternehmen #munternehmen,
+body.forschung #mforschung {
+    background-color: $color1;
+    outline: solid 1px $color1;
+
+    & > a {
+        color: white;
+    }
+}
+
+// submenu visibility
+body.forschung #submarea,
+body.area #submarea,
+body.unternehmen #subunternehmen {
+    visibility: visible;
+}
+
+// home -------------------------------------------------------------------------------------
+
+.st0 { // style name inside handdrawn svg images
+    fill: $color1;
+}
+
+
+@-webkit-keyframes showsometime {
+    0%, 100% {
+        opacity: 1;
+    }
+}
+
+@-webkit-keyframes hidesometime {
+    0%, 100% {
+        opacity: 0;
+    }
+}
+
+#fuchsi { // ffoqsi the fuchs
+    cursor: pointer;
+    margin-bottom: 3em;
+}
+
+.fuchszwink {
+    opacity: 1;
+    fill: red;
+}
+
+.fuchsauge {
+    opacity: 0;
+}
+
+#fuchsi:hover {
+    .fuchszwink {
+        animation: .3s linear 0s hidesometime;
+    }
+
+    .fuchsauge {
+        animation: .3s linear 0s showsometime;
+    }
+}
+
+body.home {
+    article {
+        text-align: center; /* center foxy and the handdrawn areas */
+    }
+
+    #areagroup {
+        _margin-top: 1em;
+    }
+
+    h3 {
+        max-width: 340px;
+        margin: auto;
+        padding: 4px;
+        transition: .2s;
+        text-decoration: underline;
+        font-weight: normal;
+    }
+
+    #Ebene_1 {
+        transition: .1s;
+        _height: 400px;
+        _width: 100%;
+        min-height: 240px;
+    }
+
+    .area-1, .area-2, .area-3 { // handdrawings
+        max-width: 310px;
+        display: inline-block;
+
+        &:hover {
+            #Ebene_1 {
+                transform: scale(.99);
+            }
+        }
+    }
+
+    .area-1 {
+
+        &:hover {
+            h3 {
+                background-color: $color2;
+                color: white;
+            }
+
+            background-color: lighten($color2, 50%);
+        }
+    }
+
+    .area-2 {
+
+        &:hover {
+            h3 {
+                background-color: $color3;
+                color: white;
+            }
+
+            background-color: lighten($color3, 50%);
+        }
+    }
+
+    .area-3 {
+
+        &:hover {
+            h3 {
+                background-color: $color4;
+                color: white;
+            }
+
+            background-color: lighten($color4, 50%);
+        }
+    }
+}
+
+figure {
+    vertical-align: top;
+}
+// unternehmen -------------------------------------------------------------------------------------
+article {
+    padding-bottom: 7em;
+}
+
+.inlineblock {
+    _outline: solid 1px navy;
+    display: inline-block;
+    vertical-align: top;
+    margin: 1em 0em 1em 1em;
+}
+
+#imgtfz {
+    float: right;
+    margin: 2em 0 2em 2em; /* img and text should have some space */
+}
+
+table {
+    border-collapse: collapse;
+
+    td, th {
+        padding: 0 1em 0 0;
+        text-align: left;
+    }
+
+    th {
+        border-bottom: 0px solid #444;
+    }
+}
+
+.mitarbeiter {
+    padding: 1em 1em 1em 0;
+    display: inline-block;
+    min-width: 360px;
+    min-height: 120px;
+    vertical-align: bottom;
+
+    .imgbox {
+        display: inline-block;
+    }
+
+    .card {
+        display: inline-block;
+        margin-left: .5em;
+    }
+
+    img {
+        display: inline-block;
+        vertical-align: bottom;
+    }
+
+    .name {
+        font-weight: bold;
+    }
+
+    .position {
+    }
+
+    clear: both;
+}
+
+section.standort {
+    p {
+        _max-width: initial;
+    }
+
+    .adress {
+        line-height: 1;
+    }
+
+    thead {
+        display: none;
+    }
+}
+
+.story {
+    max-width: 560px;
+
+    li {
+        list-style: disc;
+    }
+}
+// forschung -------------------------------------------------------------------------------------
+body.forschung {
+    article {
+        li {
+            list-style: disc;
+        }
+    }
+
+    .area-1 {
+        p, h2 {
+            color: $color2;
+        }
+    }
+
+    .area-2 {
+        p, h2 {
+            color: $color3;
+        }
+    }
+
+    .area-3 {
+        p, h2 {
+            color: $color4;
+        }
+    }
+
+    .area-1, .area-2, .area-3 {
+        h2 {
+            margin-top: 0;
+        }
+    }
+
+    h1 {
+        margin-bottom: .5em;
+    }
+
+    h2 {
+        font-size: 1.3em;
+        margin-bottom: .5em;
+        font-weight: 500;
+    }
+
+    h3 {
+        font-size: 1.0em;
+        font-style: italic;
+        margin-bottom: .5em;
+    }
+}
+// bildleiste forschung areas
+#bildleiste {
+    margin-top: 2em; // some space atop
+    a.arealink { // core element for responsive images that are in a horizontal row at 960+
+        display: inline-block;
+        vertical-align: top;
+        max-width: 316px;
+        min-width: 200px;
+        margin-bottom: 1.5em; // important when responsive small, so make room between vertically stacked images
+        text-decoration: none; // do not underline *everything*, this is a masterlink
+    }
+
+    h2 {
+        margin-top: .5em;
+    }
+
+    img {
+        width: 100%;
+        max-width: 312px;
+        max-height: 312px;
+
+        &:hover {
+            _outline: solid 1px #aaa;
+            opacity: .9;
+        }
+    }
+
+    h2 {
+        text-decoration: underline;
+    }
+
+    cursor: pointer;
+
+    a.arealink:hover {
+        h2 {
+            text-decoration: none;
+            color: white;
+        }
+    }
+
+    a.area-1:hover {
+        h2 {
+            background-color: $color2;
+        }
+    }
+
+    a.area-2:hover {
+        h2 {
+            background-color: $color3;
+        }
+    }
+
+    a.area-3:hover {
+        h2 {
+            background-color: $color4;
+        }
+    }
+}
+// area 1,2,3 -------------------------------------------------------------------------------------
+body.area {
+    #textframe {
+        h1 {
+            margin-top: 0;
+        }
+
+        background-color: white;
+        opacity: 0.95;
+        width: 520px;
+        margin-left: 280px;
+        padding: 1.5em;
+        min-height: 500px; // empty english text
+    }
+}
+// in progress: submenu
+body.area1 #smarea1 {
+    background-color: $color2;
+    color: white;
+    font-weight: bold;
+}
+
+body.area2 #smarea2 {
+    background-color: $color3;
+    color: white;
+    font-weight: bold;
+}
+
+body.area3 #smarea3 {
+    background-color: $color4;
+    color: white;
+    font-weight: bold;
+}
+
+body.area {
+    article {
+        position: relative;
+    }
+
+    .bg { // note: we use a div and not an image because img draws a border we could not get rid of
+        position: absolute;
+        top: 0;
+        height: 860px;
+        width: 960px;
+        // background-size: 100vw 67vw;
+        background-repeat: no-repeat;
+        transition: opacity 2s;
+    }
+
+    .muted {
+        opacity: 0;
+    }
+}
+
+// first image per area
+@for $i from 1 through 3 {
+    #bg-1[data-area="#{$i}"] {
+        background-image: url(../images/area-#{$i}/area-#{$i}-1.jpg);
+    }
+}
+
+body.area1 {
+    h1 {
+        color: $color2;
+    }
+}
+
+.area2 {
+    h1 {
+        color: $color3;
+    }
+}
+
+.area3 {
+    h1 {
+        color: $color4;
+    }
+}
+
+body.area1, body.area2, body.area3 {
+    header {
+        margin-bottom: 2em;
+    }
+}
+
+body.area1 {
+    #textframe {
+        _background-color: rgba($color2, .07);
+    }
+}
+
+.area2 {
+    #textframe {
+        _background-color: rgba($color3, .07);
+    }
+
+    h1 {
+        color: $color3;
+    }
+}
+
+.area3 {
+    #textframe {
+        _background-color: rgba($color4, .07);
+    }
+
+    h1 {
+        color: $color4;
+    }
+}
+
+#areamini {
+    display: none;
+}
+// parnter -------------------------------------------------------------------------------------
+body.presse, // presse uses partnerentry for the logos
+body.partner {
+    article {
+
+        li.partnerentry {
+            & > div {
+                display: inline-block;
+                vertical-align: bottom;
+                color: #666;
+            }
+
+            display: inline-block;
+            margin: 0 0 2em 1em;
+        }
+
+        .left, .right {
+            vertical-align: middle;
+            padding: .5em
+        }
+
+        .left {
+            text-align: center;
+        }
+
+        .right {
+            width: 240px;
+            line-height: 1;
+            padding-right: 2em;
+        }
+
+        .title {
+            font-weight: bold;
+            vertical-align: bottom;
+        }
+
+        margin-bottom: 2em;
+
+        img {
+            _outline: solid 1px orange;
+            vertical-align: bottom;
+        }
+    }
+}
+
+.comet {
+    margin-top: 1.5em;
+    margin-bottom: 3em;
+    display: flex;
+    flex-wrap: wrap;
+    vertical-align: top;
+
+    img#cometlogo { // comet logo
+        margin-right: 6em;
+        margin-bottom: 2em;
+        width: 300px;
+        height: 148px;
+    }
+
+    .comettext {
+        _min-width: 200px;
+        max-width: 350px;
+    }
+}
+
+.fördergeber {
+    display: inline-block;
+    vertical-align: top;
+}
+
+.partnerliste {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+figure {
+    display: inline-block;
+}
+// press
+body.presse {
+    .mitarbeiter {
+        margin-left: 2em;
+        display: block;
+
+        .card {
+            max-width: 300px;
+        }
+    }
+
+    .arealogo {
+        margin-left: 2em;
+    }
+
+    .pressitem {
+        padding: 0 2em;
+
+        a {
+            text-decoration: none; // avoid underlining the space between img and text-span
+        }
+
+        span {
+            text-decoration: underline; // link like
+            vertical-align: bottom;
+            display: inline-block;
+            padding: 1em;
+            word-break: break-word;
+            max-width: 300px;
+        }
+
+        &:hover {
+            img {
+                opacity: .8;
+            }
+
+            span {
+                color: #333;
+            }
+        }
+    }
+
+    article li.partnerentry {
+        display: block;
+        margin-left: 6em;
+
+        img:hover {
+            opacity: .8;
+        }
+    }
+
+    img.press-logo-ffoqsi {
+        height: 120px;
+    }
+}
+
+body.news {
+    figure img {
+        width: 300px;
+        height: 200px;
+    }
+}
+
+// Impressum, Kontakt
+body.impressum, body.kontakt {
+}
+// responsive - mobile phone -------------------------------------------------------------------------------------
+@media (max-width: 900px) {
+    body {
+        aaaa: "mobilo";
+        padding: 0;
+        margin: 4px;
+    }
+
+    p {
+        max-width: 400px;
+    }
+
+    article, #headercontent {
+        @include clearcenter960;
+    }
+
+    #menucontainer {
+        padding-top: 0;
+    }
+
+    #team, #standort { // no anchor workaround: header is fixed; browser would bring anchor to top of window, but need top of article.
+        display: initial;
+        position: initial;
+        top: initial; /* progressive enhancement: set this value by js */
+    }
+
+
+    #clogo {
+        display: none; /* hide logo on small screens*/
+    }
+
+    nav ul li {
+        ul { /* sub menu */
+            position: inherit;
+            visibility: inherit;
+            background-color: white;
+            outline: none;
+        }
+
+        a {
+            border: none;
+        }
+    }
+
+    nav ul li {
+        display: block;
+    }
+    // menu selection
+    body.home #mhome,
+    body.partner #mpartner,
+    body.presse #mpresse,
+    body.unternehmen #munternehmen,
+    body.forschung #mforschung {
+        outline: none;
+    }
+
+    #top {
+        text-align: right;
+        display: block;
+        position: -webkit-sticky;
+        position: -moz-sticky;
+        position: -ms-sticky;
+        position: -o-sticky;
+        position: sticky;
+        top: 0; // amount by whih the menu is displayed when opening a page via a link
+        _background-color: orchid;
+        opacity: .9;
+        z-index: 7;
+        margin: 0 -4px;
+        padding: 20px 10px;
+        cursor: pointer;
+        outline: none; // avoid blue focus rectangle
+        svg {
+            vertical-align: middle;
+            _outline: solid 1px orange;
+            padding: 4px 6px;
+            background-color: #eee;
+            border-radius: 4px;
+        }
+    }
+
+    .hamburger {
+        fill: $color1dark;
+    }
+
+    body.area {
+        #textframe {
+            width: 100%;
+            margin: auto;
+            opacity: 1;
+        }
+    }
+
+    body.area1, body.area2, body.area3 {
+        article {
+            background: none;
+            max-width: initial;
+            min-height: initial;
+            margin: initial;
+        }
+    }
+
+    body.area #textframe {
+        padding: initial;
+    }
+
+    #slideshow {
+        height: 67vw;
+        margin-bottom: 1em;
+        overflow: hidden;
+        position: relative;
+        margin: 0 -4px;
+        margin-bottom: 1em;
+    }
+
+    .bg {
+        display: block;
+        position: static;
+        height: 67vw;
+        background-size: 100vw 67vw;
+        background-repeat: no-repeat;
+        _background-clip: padding-box; // is egal oder?
+    }
+
+    header {
+        position: inherit;
+    }
+
+
+    body {
+        _background-color: beige;
+    }
+
+    #imgtfz {
+        float: none;
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        max-width: 320px;
+    }
+    // unternehmen
+    table {
+        border-collapse: collapse;
+        width: 100%;
+        max-width: 360px;
+
+        td, th {
+            padding: 0;
+            text-align: left;
+        }
+
+        td:nth-child(2) {
+            text-align: right;
+        }
+
+        th {
+            border-bottom: 0px solid #444;
+        }
+    }
+
+    .mitarbeiter {
+        max-width: calc(100vw - 8px); // - padding
+        min-width:initial;
+        .card{
+            margin-left:0;
+            display:block;
+        }
+    }
+
+    body.presse {
+        .mitarbeiter {
+            display: block;
+            vertical-align: top;
+            min-width: initial;
+            max-width:calc(100vw - 8px); // - padding
+            min-height: initial;
+            margin-left: 0;
+
+            .imgbox {
+                display: table-cell;
+            }
+
+            .card {
+                margin-left: 4px;
+                display: table-cell;
+                vertical-align: bottom;
+                padding-left: .5em;
+            }
+        }
+    }
+}
+
+// photoswipe
+
+.pswp__button--arrow--left,
+.pswp__button--arrow--right {
+    margin: initial; // reset
+    top: 44px;
+    height: calc(100% - 44px);
+    width: 50%;
+    opacity: .3;
+    _outline: solid 1px orange;
+}
+
+.pswp__button--arrow--left:hover:before,
+.pswp__button--arrow--right:hover:before {
+    _background-color: orange;
+    outline: solid 2px white;
+    opacity: 1;
+}
+
+body {
+    _background-color: cadetblue;
+}
