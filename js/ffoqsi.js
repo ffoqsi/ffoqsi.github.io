@@ -14,7 +14,7 @@ function animate() {
         slides[s1].classList.add("muted");
         slides[s2].classList.remove("muted");
         currentslide = ++currentslide % areaimgcount;
-    }, 2000);
+    }, 10000);
 }
 
 function initimages() {
