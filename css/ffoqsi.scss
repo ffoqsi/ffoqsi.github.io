@@ -302,21 +302,21 @@ body.unternehmen #subunternehmen {
 }
 
 .fuchszwink {
-    opacity: 1;
+    opacity: 0;
     fill: red;
 }
 
 .fuchsauge {
-    opacity: 0;
+    opacity: 1;
 }
 
 #fuchsi:hover {
     .fuchszwink {
-        animation: .3s linear 0s hidesometime;
+        animation: .3s linear 0s showsometime;
     }
 
     .fuchsauge {
-        animation: .3s linear 0s showsometime;
+        animation: .3s linear 0s hidesometime;
     }
 }
 
