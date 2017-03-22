@@ -425,7 +425,7 @@ table {
 .mitarbeiter {
     padding: 1em 1em 1em 0;
     display: inline-block;
-    min-width: 360px;
+    min-width: 45%;
     min-height: 120px;
     vertical-align: bottom;
 
@@ -852,6 +852,7 @@ figure {
 body.impressum, body.kontakt {
 }
 // responsive - mobile phone -------------------------------------------------------------------------------------
+
 @media (max-width: 900px) {
     body {
         aaaa: "mobilo";
@@ -1014,12 +1015,16 @@ body.impressum, body.kontakt {
     .mitarbeiter {
         max-width: calc(100vw - 8px); // - padding
         min-width: initial;
+        display: block;
+        margin-left: 1em;
 
-        .card {
-            margin-left: 0;
+        .imgbox, .card {
             display: block;
+            margin: 2px;
         }
     }
+
+
 
     body.presse {
         .mitarbeiter {
