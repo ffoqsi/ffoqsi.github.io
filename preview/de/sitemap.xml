@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  
+  <url>
+    <loc>/area-1/</loc>
+  </url>
+  
+  <url>
+    <loc>/area-2/</loc>
+  </url>
+  
+  <url>
+    <loc>/area-3/</loc>
+  </url>
+  
+  <url>
+    <loc>/impressum/</loc>
+  </url>
+  
+  <url>
+    <loc>/kontakt/</loc>
+  </url>
+  
+  <url>
+    <loc>/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/forschung/</loc>
+  </url>
+  
+  <url>
+    <loc>/home/</loc>
+  </url>
+  
+  <url>
+    <loc>/news/</loc>
+  </url>
+  
+  <url>
+    <loc>/partner/</loc>
+  </url>
+  
+  <url>
+    <loc>/presse/</loc>
+  </url>
+  
+  <url>
+    <loc>/unternehmen/</loc>
+  </url>
+  
+</urlset>
