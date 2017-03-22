@@ -60,25 +60,27 @@ window.onload = function () {
         scroll2id(target);
     }, 300);
 }
-document.querySelector("#subunternehmen a[href*=mission]").addEventListener("click", function (ev) {
-    if (document.location.href.indexOf("unternehmen") === -1) return;
-    ev.preventDefault();
-    scroll2id("mission");
-});
-document.querySelector("#subunternehmen a[href*=team]").addEventListener("click", function (ev) {
-    if(document.location.href.indexOf("unternehmen") === -1) return;
-    ev.preventDefault();
-    scroll2id("team");
-});
-document.querySelector("#subunternehmen a[href*=standort]").addEventListener("click", function (ev) {
-    if (document.location.href.indexOf("unternehmen") === -1) return;
-    ev.preventDefault();
-    scroll2id("standort");
-});
-var atags = document.querySelectorAll("#subunternehmen a");
-[].forEach.call(atags, function (e) {
-    e.href = e.href.replace("#", "?");
-});
+
+// subunternehmen functions
+// document.querySelector("#subunternehmen a[href*=mission]").addEventListener("click", function (ev) {
+//     if (document.location.href.indexOf("unternehmen") === -1) return;
+//     ev.preventDefault();
+//     scroll2id("mission");
+// });
+// document.querySelector("#subunternehmen a[href*=team]").addEventListener("click", function (ev) {
+//     if(document.location.href.indexOf("unternehmen") === -1) return;
+//     ev.preventDefault();
+//     scroll2id("team");
+// });
+// document.querySelector("#subunternehmen a[href*=standort]").addEventListener("click", function (ev) {
+//     if (document.location.href.indexOf("unternehmen") === -1) return;
+//     ev.preventDefault();
+//     scroll2id("standort");
+// });
+// var atags = document.querySelectorAll("#subunternehmen a");
+// [].forEach.call(atags, function (e) {
+//     e.href = e.href.replace("#", "?");
+// });
 
 /*
  * smoothscroll polyfill - v0.3.4

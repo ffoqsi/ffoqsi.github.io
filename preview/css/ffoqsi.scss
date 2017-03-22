@@ -425,7 +425,8 @@ table {
 .mitarbeiter {
     padding: 1em 1em 1em 0;
     display: inline-block;
-    min-width: 45%;
+    min-width: 48%;
+    max-width: 50%;
     min-height: 120px;
     vertical-align: bottom;
 
@@ -594,6 +595,11 @@ body.area {
         padding: 1.5em;
         min-height: 500px; // empty english text
     }
+
+    .mitarbeiter {
+        min-width: initial;
+        max-width: initial;
+    }
 }
 // in progress: submenu
 body.area1 #smarea1 {
@@ -737,6 +743,9 @@ body.partner {
             vertical-align: bottom;
         }
     }
+    .mitarbeiter{
+        max-width: initial;
+    }
 }
 
 .comet {
@@ -835,18 +844,17 @@ body.news {
         width: 120px;
         height: 80px;
     }
-}
 
-figure {
-    display: none;
-}
+    figure {
+        display: none;
+    }
 
-@for $i from 1 through 28 {
-    .figure#{$i} {
-        display: inline-block
+    @for $i from 1 through 28 {
+        .figure#{$i} {
+            display: inline-block
+        }
     }
 }
-
 
 // Impressum, Kontakt
 body.impressum, body.kontakt {
@@ -1054,7 +1062,7 @@ body.impressum, body.kontakt {
     margin: initial; // reset
     top: 44px;
     height: calc(100% - 44px);
-    width: 50%;
+    width: 30%;
     opacity: .3;
     _outline: solid 1px orange;
 }
