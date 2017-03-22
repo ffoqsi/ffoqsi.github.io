@@ -4,7 +4,7 @@ var initPhotoSwipeFromDOM = function () {
 
     var parseThumbnailElements = function (el) {
 
-        return [].map.call(el.querySelectorAll("figure"), (figureEl) => {
+        return [].map.call(el.querySelectorAll("figure"), function(figureEl) {
             var linkEl = figureEl.children[0]; // <a> element
             var size = linkEl.getAttribute('data-size').split('x');
 
