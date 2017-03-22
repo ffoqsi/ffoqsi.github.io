@@ -833,10 +833,21 @@ body.presse {
     }
 }
 
+// gallery
 body.news {
     figure img {
-        _width: 300px;
+        width: 120px;
         height: 80px;
+    }
+}
+
+figure {
+    display: none;
+}
+
+@for $i from 1 through 24 {
+    .figure#{$i} {
+        display: inline-block
     }
 }
 
@@ -1005,10 +1016,11 @@ body.impressum, body.kontakt {
 
     .mitarbeiter {
         max-width: calc(100vw - 8px); // - padding
-        min-width:initial;
-        .card{
-            margin-left:0;
-            display:block;
+        min-width: initial;
+
+        .card {
+            margin-left: 0;
+            display: block;
         }
     }
 
@@ -1017,7 +1029,7 @@ body.impressum, body.kontakt {
             display: block;
             vertical-align: top;
             min-width: initial;
-            max-width:calc(100vw - 8px); // - padding
+            max-width: calc(100vw - 8px); // - padding
             min-height: initial;
             margin-left: 0;
 
@@ -1034,9 +1046,7 @@ body.impressum, body.kontakt {
         }
     }
 }
-
 // photoswipe
-
 .pswp__button--arrow--left,
 .pswp__button--arrow--right {
     margin: initial; // reset
