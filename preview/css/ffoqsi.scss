@@ -15,10 +15,6 @@ body, html, div, img, p, h1, h2, h3, h4, h5, h6, pre, ul, ol, li, dl, dt, dd, fo
     scroll-behavior: smooth; // only firefox does it: https://developer.mozilla.org/en-US/docs/Web/CSS/scroll-behavior
 }
 
-figure {
-    padding: .5em;
-}
-
 h1, h2, h3 {
     border-radius: 4px;
 }
@@ -845,8 +841,12 @@ figure {
     display: none;
 }
 
-@for $i from 1 through 24 { .figure#{$i} } 
-{ display: inline-block }
+@for $i from 1 through 28 {
+    .figure#{$i} {
+        display: inline-block
+    }
+}
+
 
 // Impressum, Kontakt
 body.impressum, body.kontakt {
