@@ -600,6 +600,7 @@ body.area {
         min-width: initial;
         max-width: initial;
     }
+
 }
 // in progress: submenu
 body.area1 #smarea1 {
@@ -868,9 +869,9 @@ body.impressum, body.kontakt {
         margin: 4px;
     }
 
-    p {
+    /*p {
         max-width: 400px;
-    }
+    }*/
 
     article, #headercontent {
         @include clearcenter960;
