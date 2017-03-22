@@ -845,11 +845,8 @@ figure {
     display: none;
 }
 
-@for $i from 1 through 24 {
-    .figure#{$i} {
-        display: inline-block
-    }
-}
+@for $i from 1 through 24 { .figure#{$i} } 
+{ display: inline-block }
 
 // Impressum, Kontakt
 body.impressum, body.kontakt {
