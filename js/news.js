@@ -1,12 +1,10 @@
 ﻿
 
-var initPhotoSwipeFromDOM = function (gallerySelector) {
+var initPhotoSwipeFromDOM = function () {
 
-    var gallery = document.querySelector(gallerySelector);
     var parseThumbnailElements = function (el) {
 
-        return [].map.call(gallery.querySelectorAll("figure"), (figureEl) => {
-
+        return [].map.call(el.querySelectorAll("figure"), function(figureEl) {
             var linkEl = figureEl.children[0]; // <a> element
             var size = linkEl.getAttribute('data-size').split('x');
 
@@ -116,8 +114,18 @@ var initPhotoSwipeFromDOM = function (gallerySelector) {
 
             // define gallery index (for URL)
             galleryUID: galleryElement.getAttribute('data-pswp-uid'),
-            zoomEl: false,
-            shareEl: false
+            zoomEl: true,
+            shareEl: true,
+            getThumbBoundsFn: function (index) {
+                // See Options -> getThumbBoundsFn section of documentation for more info
+                var thumbnail = items[index].el.getElementsByTagName('img')[0], // find thumbnail
+                    pageYScroll = window.pageYOffset || document.documentElement.scrollTop,
+                    rect = thumbnail.getBoundingClientRect();
+
+                return { x: rect.left, y: rect.top + pageYScroll, w: rect.width };
+            },
+            // ui
+            timeToIdle: 0 // never go idle and hide the ui (numbering)
         };
 
         // PhotoSwipe opened from URL
@@ -154,7 +162,7 @@ var initPhotoSwipeFromDOM = function (gallerySelector) {
     };
 
     // loop through all gallery elements and bind events
-    var galleryElements = document.querySelectorAll(gallerySelector);
+    var galleryElements = document.querySelectorAll(".gallery");
 
     for (var i = 0, l = galleryElements.length; i < l; i++) {
         galleryElements[i].setAttribute('data-pswp-uid', i + 1);
@@ -170,6 +178,6 @@ var initPhotoSwipeFromDOM = function (gallerySelector) {
 
 // execute above function
 console.log("initing");
-initPhotoSwipeFromDOM('.gallery1');
-initPhotoSwipeFromDOM('.gallery2');
+initPhotoSwipeFromDOM();
+
 console.log("inited");

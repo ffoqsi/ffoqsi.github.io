@@ -15,10 +15,6 @@ body, html, div, img, p, h1, h2, h3, h4, h5, h6, pre, ul, ol, li, dl, dt, dd, fo
     scroll-behavior: smooth; // only firefox does it: https://developer.mozilla.org/en-US/docs/Web/CSS/scroll-behavior
 }
 
-figure {
-    padding: .5em;
-}
-
 h1, h2, h3 {
     border-radius: 4px;
 }
@@ -429,7 +425,8 @@ table {
 .mitarbeiter {
     padding: 1em 1em 1em 0;
     display: inline-block;
-    min-width: 360px;
+    min-width: 48%;
+    max-width: 50%;
     min-height: 120px;
     vertical-align: bottom;
 
@@ -598,6 +595,12 @@ body.area {
         padding: 1.5em;
         min-height: 500px; // empty english text
     }
+
+    .mitarbeiter {
+        min-width: initial;
+        max-width: initial;
+    }
+
 }
 // in progress: submenu
 body.area1 #smarea1 {
@@ -741,6 +744,9 @@ body.partner {
             vertical-align: bottom;
         }
     }
+    .mitarbeiter{
+        max-width: initial;
+    }
 }
 
 .comet {
@@ -833,10 +839,21 @@ body.presse {
     }
 }
 
+// gallery
 body.news {
     figure img {
-        width: 300px;
-        height: 200px;
+        width: 120px;
+        height: 80px;
+    }
+
+    figure {
+        display: none;
+    }
+
+    @for $i from 1 through 28 {
+        .figure#{$i} {
+            display: inline-block
+        }
     }
 }
 
@@ -844,6 +861,7 @@ body.news {
 body.impressum, body.kontakt {
 }
 // responsive - mobile phone -------------------------------------------------------------------------------------
+
 @media (max-width: 900px) {
     body {
         aaaa: "mobilo";
@@ -851,9 +869,9 @@ body.impressum, body.kontakt {
         margin: 4px;
     }
 
-    p {
+    /*p {
         max-width: 400px;
-    }
+    }*/
 
     article, #headercontent {
         @include clearcenter960;
@@ -1005,19 +1023,24 @@ body.impressum, body.kontakt {
 
     .mitarbeiter {
         max-width: calc(100vw - 8px); // - padding
-        min-width:initial;
-        .card{
-            margin-left:0;
-            display:block;
+        min-width: initial;
+        display: block;
+        margin-left: 1em;
+
+        .imgbox, .card {
+            display: block;
+            margin: 2px;
         }
     }
+
+
 
     body.presse {
         .mitarbeiter {
             display: block;
             vertical-align: top;
             min-width: initial;
-            max-width:calc(100vw - 8px); // - padding
+            max-width: calc(100vw - 8px); // - padding
             min-height: initial;
             margin-left: 0;
 
@@ -1034,15 +1057,13 @@ body.impressum, body.kontakt {
         }
     }
 }
-
 // photoswipe
-
 .pswp__button--arrow--left,
 .pswp__button--arrow--right {
     margin: initial; // reset
     top: 44px;
     height: calc(100% - 44px);
-    width: 50%;
+    width: 30%;
     opacity: .3;
     _outline: solid 1px orange;
 }
