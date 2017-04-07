@@ -438,11 +438,11 @@ table {
 
     .imgbox {
         display: inline-block;
+        margin-right: .5em;
     }
 
     .card {
         display: inline-block;
-        margin-left: .5em;
     }
 
     img {
@@ -965,6 +965,12 @@ body.impressum, body.kontakt {
             max-width: initial;
             min-height: initial;
             margin: initial;
+        }
+    }
+
+    body.home {
+        .area-1, .area-2, .area-3 {
+            min-width: 250px;
         }
     }
 

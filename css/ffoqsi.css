@@ -329,10 +329,10 @@ table {
   vertical-align: bottom;
   clear: both; }
   .mitarbeiter .imgbox {
-    display: inline-block; }
-  .mitarbeiter .card {
     display: inline-block;
-    margin-left: .5em; }
+    margin-right: .5em; }
+  .mitarbeiter .card {
+    display: inline-block; }
   .mitarbeiter img {
     display: inline-block;
     vertical-align: bottom; }
@@ -763,6 +763,8 @@ body.news .figure28 {
     max-width: initial;
     min-height: initial;
     margin: initial; }
+  body.home .area-1, body.home .area-2, body.home .area-3 {
+    min-width: 250px; }
   body.area #textframe {
     padding: initial; }
   #slideshow {
