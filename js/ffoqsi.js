@@ -24,7 +24,7 @@ function initimages() {
     for (var i = 2; i <= areaimgcount; i++) {
         var img = img1.cloneNode();
         img.id = "bg-" + i;
-        img.style.backgroundImage = "url(images/area-" + areanum + "/area-" + areanum + "-" + i + ".jpg)";
+        img.style.backgroundImage = "url(/images/area-" + areanum + "/area-" + areanum + "-" + i + ".jpg)";
         img.classList.add("muted");
         slides.push(img);
         p.insertBefore(img, img1);
@@ -61,33 +61,11 @@ window.onload = function () {
     }, 300);
 }
 
-// subunternehmen functions
-// document.querySelector("#subunternehmen a[href*=mission]").addEventListener("click", function (ev) {
-//     if (document.location.href.indexOf("unternehmen") === -1) return;
-//     ev.preventDefault();
-//     scroll2id("mission");
-// });
-// document.querySelector("#subunternehmen a[href*=team]").addEventListener("click", function (ev) {
-//     if(document.location.href.indexOf("unternehmen") === -1) return;
-//     ev.preventDefault();
-//     scroll2id("team");
-// });
-// document.querySelector("#subunternehmen a[href*=standort]").addEventListener("click", function (ev) {
-//     if (document.location.href.indexOf("unternehmen") === -1) return;
-//     ev.preventDefault();
-//     scroll2id("standort");
-// });
-// var atags = document.querySelectorAll("#subunternehmen a");
-// [].forEach.call(atags, function (e) {
-//     e.href = e.href.replace("#", "?");
-// });
-
 /*
  * smoothscroll polyfill - v0.3.4
  * https://iamdustan.github.io/smoothscroll
  * 2016 (c) Dustan Kasten, Jeremias Menichelli - MIT License
  */
-
 
 /*
  * aliases
