@@ -1159,7 +1159,9 @@ body {
   _background-color: cadetblue;
 }
 
-/*
+/*.area-1{
+    background-color: lightgreen;
+}*/
 video::-internal-media-controls-download-button {
   display: none;
 }
@@ -1170,11 +1172,17 @@ video::-webkit-media-controls-enclosure {
 
 video::-webkit-media-controls-panel {
   width: calc(100% + 30px);
-  // Adjust as needed
+  /* Adjust as needed */
 }
-*/
 
 video {
   width: 600px;
-  max-width: 100%;
 }
+
+.pulogos {
+  padding: 0;
+  margin: 2em 0;
+}
+ img{
+   _border: solid 1px violet;
+ }
