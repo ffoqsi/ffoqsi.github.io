@@ -642,15 +642,15 @@ body.area .muted {
 }
 
 #bg-1[data-area='1'] {
-  background-image: url(../images/area-1/area-1-1jpg);
+  background-image: url(../images/area-1/area-1-1.jpg);
 }
 
 #bg-1[data-area='2'] {
-  background-image: url(../images/area-2/area-2-1jpg);
+  background-image: url(../images/area-2/area-2-1.jpg);
 }
 
 #bg-1[data-area='3'] {
-  background-image: url(../images/area-3/area-3-1jpg);
+  background-image: url(../images/area-3/area-3-1.jpg);
 }
 
 body.area-1 h1 {
@@ -1180,9 +1180,5 @@ video {
 }
 
 .pulogos {
-  padding: 0;
-  margin: 2em 0;
+  padding: 2em;
 }
- img{
-   _border: solid 1px violet;
- }

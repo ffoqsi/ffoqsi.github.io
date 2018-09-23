@@ -694,7 +694,7 @@ body.area {
 // first image per area
 @for $i from 1 through 3 {
   #bg-1[data-area='#{$i}'] {
-    background-image: url(../images/area-#{$i}/area-#{$i}-1jpg);
+    background-image: url(../images/area-#{$i}/area-#{$i}-1.jpg);
   }
 }
 
