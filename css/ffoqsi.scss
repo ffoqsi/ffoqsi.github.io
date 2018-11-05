@@ -801,26 +801,26 @@ body.partner {
     max-width: initial;
   }
 
-  .comet {
-    margin-top: 1.5em;
-    margin-bottom: 3em;
-    display: flex;
-    flex-wrap: wrap;
-    vertical-align: top;
+  // .comet {
+  //   margin-top: 1.5em;
+  //   margin-bottom: 3em;
+  //   display: flex;
+  //   flex-wrap: wrap;
+  //   vertical-align: top;
 
-    img#cometlogo {
-      // comet logo
-      margin-right: 6em;
-      margin-bottom: 2em;
-      width: 300px;
-      height: 148px;
-    }
+  //   // img#cometlogo {
+  //   //   // comet logo
+  //   //   margin-right: 6em;
+  //   //   margin-bottom: 2em;
+  //   //   width: 120px;
+  //   //   height: 80px;
+  //   // }
 
-    .comettext {
-      _min-width: 200px;
-      max-width: 350px;
-    }
-  }
+  //   // .comettext {
+  //   //   _min-width: 200px;
+  //   //   max-width: 350px;
+  //   // }
+  // }
 
   .fördergeber {
     display: inline-block;
@@ -1167,4 +1167,9 @@ video {
 
 .pulogos {  
   padding: 2em;
+  a:hover{
+    //outline: red solid 4px;
+    opacity: .8;
+    //outline: solid 1px #aaa;
+  }
 }

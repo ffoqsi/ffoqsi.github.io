@@ -750,29 +750,6 @@ body.partner .mitarbeiter {
   max-width: initial;
 }
 
-body.presse .comet,
-body.partner .comet {
-  margin-top: 1.5em;
-  margin-bottom: 3em;
-  display: flex;
-  flex-wrap: wrap;
-  vertical-align: top;
-}
-
-body.presse .comet img#cometlogo,
-body.partner .comet img#cometlogo {
-  margin-right: 6em;
-  margin-bottom: 2em;
-  width: 300px;
-  height: 148px;
-}
-
-body.presse .comet .comettext,
-body.partner .comet .comettext {
-  _min-width: 200px;
-  max-width: 350px;
-}
-
 body.presse .fördergeber,
 body.partner .fördergeber {
   display: inline-block;
@@ -1181,4 +1158,8 @@ video {
 
 .pulogos {
   padding: 2em;
+}
+
+.pulogos a:hover {
+  opacity: .8;
 }
