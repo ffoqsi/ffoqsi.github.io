@@ -1,2 +1,7 @@
 files/Thumbs.db
 images/Thumbs.db
+*Thumbs.db
+**/Thumbs.db
+**Thumbs.db
+images/fg-logos/Thumbs.db
+images/team/Thumbs.db
