@@ -214,7 +214,7 @@ nav > ul > li > a {
     display:none;
 }*/
 nav ul li ul li {
-  padding-left: 0.7em;
+  margin-left: 0.7em;
   margin-top: 0.3em;
 }
 
@@ -441,6 +441,35 @@ article {
   padding-bottom: 7em;
 }
 
+// area-submenu
+body.u-team #uteam {
+  background-color: $color1;
+  color: white;
+  font-weight: bold;
+}
+body.u-generalversammlung #uboard {
+  background-color: $color1;
+  color: white;
+  font-weight: bold;
+}
+body.u-aufsichtsrat #uaufsicht {
+  background-color: $color1;
+  color: white;
+  font-weight: bold;
+}
+body.u-advisory #uadvisory {
+  background-color: $color1;
+  color: white;
+  font-weight: bold;
+}
+
+body.u-generalversammlung, body.u-aufsichtsrat, body.u-advisory {
+  .mitarbeiter{
+    display: block; // here, each person has a full line
+  }
+}
+
+
 .inlineblock {
   _outline: solid 1px navy;
   display: inline-block;
@@ -652,7 +681,7 @@ body.area {
     max-width: initial;
   }
 }
-// in progress: submenu
+// area-submenu
 body.area-1 #smarea1 {
   background-color: $color2;
   color: white;
@@ -1171,5 +1200,13 @@ video {
     //outline: red solid 4px;
     opacity: .8;
     //outline: solid 1px #aaa;
+  }
+}
+
+// special for team-gremien
+.u-generalversammlung, .u-advisory, .u-aufsichtsrat {
+  //background: yellowgreen;
+  .mitarbeiter{
+    max-width: initial;
   }
 }

@@ -196,7 +196,7 @@ nav > ul > li > a {
     display:none;
 }*/
 nav ul li ul li {
-  padding-left: 0.7em;
+  margin-left: 0.7em;
   margin-top: 0.3em;
 }
 
@@ -420,6 +420,34 @@ figure {
 
 article {
   padding-bottom: 7em;
+}
+
+body.u-team #uteam {
+  background-color: #9f9367;
+  color: white;
+  font-weight: bold;
+}
+
+body.u-generalversammlung #uboard {
+  background-color: #9f9367;
+  color: white;
+  font-weight: bold;
+}
+
+body.u-aufsichtsrat #uaufsicht {
+  background-color: #9f9367;
+  color: white;
+  font-weight: bold;
+}
+
+body.u-advisory #uadvisory {
+  background-color: #9f9367;
+  color: white;
+  font-weight: bold;
+}
+
+body.u-generalversammlung .mitarbeiter, body.u-aufsichtsrat .mitarbeiter, body.u-advisory .mitarbeiter {
+  display: block;
 }
 
 .inlineblock {
@@ -1162,4 +1190,8 @@ video {
 
 .pulogos a:hover {
   opacity: .8;
+}
+
+.u-generalversammlung .mitarbeiter, .u-advisory .mitarbeiter, .u-aufsichtsrat .mitarbeiter {
+  max-width: initial;
 }
